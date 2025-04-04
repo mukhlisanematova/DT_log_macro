@@ -1,0 +1,14 @@
+Function create_sheets()
+    Dim i As Long, LastRow As Long, ws As Worksheet
+    Sheets("Name").Activate
+    LastRow = 4
+    
+    For i = 1 To LastRow
+        Sheets("Template").Copy After:=Sheets(i)
+        ActiveSheet.Name = Sheets("Names").Cells(i, 1)
+    
+        ActiveSheet.Range("b2").Value = ActiveSheet.Name
+    Next i
+    MsgBox "Done creating sheets"
+    
+End Function
